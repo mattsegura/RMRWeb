@@ -1,0 +1,807 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,400i,900&display=swap&subset=latin-ext');
+
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}html{line-height:1}body{line-height:inherit;}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
+
+/* TODO: Change everything to em values */
+
+/* General stuff */
+
+html {
+  box-sizing: border-box;
+  font-family: "Poppins", Helvetica, Arial, sans-serif;
+  font-size: 20px; /* f = 20 */
+  line-height: 1.5em; /* l = 30 */
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #1A2324;
+}
+
+a:link, a:visited {
+  color: #BDB3B1;
+  text-decoration: none;
+}
+
+
+/* Nav stuff */
+
+nav {
+  display: block;
+  background: #1A2324;
+  color: #BDB3B1;
+
+  min-height: 10vh;
+  width: 100%;
+
+  transition: width 500ms ease;
+}
+nav ul {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+#navlogo {
+  padding: 2vw;
+  height: 8vh;
+}
+
+#navlogo-item {
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100vw;
+}
+
+#menu-icon {
+  height: 6vh;
+  margin-right: 8vw;
+  transition: all 0.5s;
+}
+
+.nav-button {
+  color: #BDB3B1;
+  /* border-radius: 10px; */
+  font-weight: bold;
+  height: max-content;
+  height: 100%;
+  width: 100vw;
+  transition: color,background 100ms linear;
+  height: 8vh;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+}
+
+nav:hover .nav-button {
+  display: flex;
+}
+
+nav:hover #menu-icon {
+  color: red;
+  transform: rotate(180deg);
+}
+
+nav ul img {
+  display: block;
+  height: 8vh;
+  margin-right: 10px;
+}
+
+#githubButton {
+  display: none;
+  margin-left: auto;
+  margin-right: 25px;
+}
+
+#githubButton svg {
+  height: 6vh;
+}
+
+#githubButton:hover svg {
+  color: rgb(0, 4, 255);
+}
+
+#githubButton a:focus {
+  outline: none;
+}
+
+.nav-button:hover, /* Swap colors on hover */
+.nav-button:focus,
+.nav-button:active {
+  background: #BDB3B1;
+  color: #1A2324;
+  border-bottom: 2px solid white;
+  margin-bottom: -2px;
+  cursor: pointer;
+}
+
+#home-page #homeButton a, /* Don't swap colors on hover if current page */
+#members-page #membersButton a,
+#gallery-page #galleryButton a,
+#sponsors-page #sponsorsButton a {
+  background: #1A2324;
+  color: #BDB3B1;
+  pointer-events: none;
+}
+
+#home-page #homeButton a, /* Darken current page buttons for dropdown menu */
+#members-page #membersButton a,
+#gallery-page #galleryButton a,
+#sponsors-page #sponsorsButton a {
+  background: #101616;
+  cursor: default;
+}
+
+/* Header stuff */
+
+header {
+  color: #BDB3B1;
+  background: #1A2324;
+  display: grid;
+  font-weight: 900;
+  height: 90vh;
+  text-align: center;
+
+  border-bottom: 10px solid #1A2324;
+
+  /* TODO: Use image-set */
+  background-image: url("./images/moon.jpg");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header h1 {
+  background: #1A2324;
+  padding: 30px 10vw;
+  margin: 0 auto;
+  height: min-content;
+  width: min-content;
+  font-size: 7vw;
+  line-height: 3rem;
+  text-transform: uppercase;
+  word-spacing: 10px;
+}
+
+/* Banner stuff */
+
+.banner {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+}
+
+.banner h2 {
+  color: #BDB3B1;
+  background: #1A2324;
+  padding: 10px;
+  font-size: 15px;
+  letter-spacing: 10px;
+  line-height: 40px;
+  text-align: center;
+  text-transform: uppercase;
+  z-index: 9999;
+}
+
+.banner::before { /* Holds image behind header and maybe filter if necessary */
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  z-index: -1;
+}
+
+.banner::after { /* Holds linear gradient effect */
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0, 0.6) 100%);
+}
+
+.banner h2 strong {
+  display: block;
+}
+
+nav + article section.banner { /* If banner is first thing on page, account for nav bar height */
+  height: 90vh;
+}
+
+#team-banner::before {
+  background-image: url("./images/team/DSC_7297.jpg");
+}
+
+#goal-banner::before {
+  background-image: url("./images/team/DSC_7297.jpg");
+}
+
+#competition-banner::before {
+  background-image: url("./images/arena.jpeg");
+}
+
+
+/* Card stuff */
+
+.card {
+  background: #1A2324;
+  color: #BDB3B1;
+  min-height: 40vh;
+  padding: 40px 5%;
+  overflow: auto; /* Fixes card-logo from floating out of the box */
+}
+
+.card a {
+  color: red;
+  /* text-decoration: red underline; */
+}
+
+.alt {
+  background: #BDB3B1;
+  color: #1A2324;
+}
+
+.card h3 {
+  font-size: 20px;
+  font-weight: bold;
+  padding-bottom: 40px;
+  text-align: center;
+  hyphens: auto;
+}
+
+.card-logo {
+  display: block;
+  margin: 0 auto;
+  width: 70vw;
+}
+
+.card p {
+  font-size: 20px;
+  line-height: 2rem;
+  margin-top: 20px;
+}
+
+.team-card {
+  min-height: 0px; /* For IE 11 */
+  min-height: unset;
+  font-size: 20px;
+}
+
+.team-card h3 {
+  display: block;
+  font-size: 20px;
+  padding-bottom: 10px;
+}
+
+.team-card .team-icon {
+  max-width: 50px;
+  max-height: 50px;
+  display: block;
+  margin: 0 auto;
+}
+
+#programming-team {
+  color: #BDB3B1;
+  background: #1A2324;
+  border-bottom: 10px solid #505353;
+}
+
+#electrical-team {
+  color: #1A2324;
+  border-top: 10px solid #878382;
+  background: #BDB3B1;
+  /* background: linear-gradient(to bottom, #BDB3B1 0% 95%, #1A2324 100%); */
+  border-bottom: 10px solid #878382;
+}
+
+#mechanical-team {
+  color: #BDB3B1;
+  border-top: 10px solid #505353;
+  background: #1A2324;
+}
+
+/* Minicards */
+.minicard li {
+  display: flex;
+  flex-direction: column;
+  padding: 0 30px 75px 30px;
+}
+
+.minicard li p {
+  text-align: left;
+}
+
+.minicard li h4 {
+  margin: 20px auto;
+  margin-bottom: 0px;
+  font-size: 20px;
+  line-height: 1em;
+  font-weight: bold;
+  border-bottom: 4px solid red;
+  width: max-content;
+}
+
+@supports (text-decoration-thickness: 4px) {
+  .minicard li h4 {
+    border-bottom: none;
+    margin: 20px 0 0 0;
+    text-decoration: red underline;
+    text-decoration-thickness: 4px;
+    text-align: center;
+    width: unset;
+  }
+}
+
+.minicard li img {
+  margin: 0 auto;
+  align-self: center;
+  object-fit: contain;
+  max-width: 100%;
+}
+
+.minicard li a {
+  padding-top: 20px;
+  /* margin-top: auto; */
+  font-size: 18px;
+}
+
+.minicard li a:hover {
+  text-decoration: 1px red underline;
+}
+
+.minicard li a::after {
+  content: " »"
+}
+
+/* Gallery stuff */
+
+.image-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 40px;
+  /* max-height: 100vh; */
+  /* overflow-y: hidden; */
+}
+
+.image-gallery li figure {
+  width: 200px;
+  margin: 50px auto;
+}
+
+.image-gallery img {
+  display: block;
+  width: 100px;
+  margin: 0 auto;
+}
+
+.image-gallery figcaption {
+  text-align: center;
+}
+
+.image-gallery figure {
+  position: relative;
+}
+
+.team-card .member-role {
+  font-size: 20px;
+  font-weight: 200;
+  color: #BDB3B1;
+  width: max-content;
+  margin: 20px auto;
+  padding: 5px;
+  opacity: 1;
+  border-radius: 4px;
+  transition: opacity 100ms;
+}
+
+.team-card-alt .member-role {
+  color: #1A2324;
+}
+
+.team-card figure:hover .member-role {
+  opacity: 1;
+}
+
+
+.team-card .image-gallery img {
+  width: 100px;
+}
+
+.team-card figcaption {
+  margin-top: 15px;
+}
+
+/* Footer stuff */
+footer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  /* min-height: 50vh; */
+  max-width: 80vw;
+  padding: 50px 10vw;
+  font-size: 6vw;
+}
+
+footer section {
+  margin-bottom: 50px;
+}
+
+.contact-footer ul li a {
+  display: block;
+  margin-bottom: 30px;
+}
+
+footer ol li {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+footer ol li:hover a {
+  border-bottom: 1px solid red;
+}
+
+footer ol li:hover::before {
+  color: red;
+}
+
+footer h5 {
+  font-size: 9vw;
+  margin-bottom: 50px;
+}
+
+footer h5, footer h5 a, footer h5 a:visited, footer h5 a:link {
+  color: #BDB3B1;
+  text-decoration: underline;
+}
+
+footer svg {
+  width: 30px;
+  margin-right: 10px;
+  position: relative;
+}
+
+footer ul li:hover svg {
+  animation: jump 500ms;
+}
+
+.alt-footer {
+  background: #BDB3B1;
+}
+
+.alt-footer a {
+  color: #1A2324;
+}
+
+.alt-footer h5, .alt-footer h5 a, .alt-footer h5 a:visited, .alt-footer h5 a:link {
+  color: #1A2324;
+}
+
+#email:hover svg, #email:hover p {
+  color: #8CE296;
+}
+
+#facebook:hover svg, #facebook:hover p {
+  color: #43609C;
+}
+
+#instagram:hover svg, #instagram:hover p {
+  color: #B93B9F;
+}
+
+
+
+
+/* Media queries */
+
+@media screen and (min-width: 15.625em) { /* 250 px */
+  header h1 {
+    font-size: 20px;
+    padding: 30px;
+  }
+
+  .banner h2 {
+    font-size: 30px;
+  }
+
+  .card h3 {
+    font-size: 30px;
+  }
+
+  .team-card h3 {
+    font-size: 30px;
+  }
+
+  .team-card .team-icon {
+    max-width: 80px;
+    max-height: 80px;
+  }
+}
+
+@media screen and (min-width: 333px) { /* 333 px */
+  footer {
+    font-size: 20px;
+  }
+  footer h5 {
+    font-size: 30px;
+  }
+}
+
+@media screen and (min-width: 450px) { /* 450 px */
+  /* Transform nav bar into horizontal one */
+  nav {
+    height: 10vh;
+  }
+
+  #navlogo {
+    padding: 0 0 0 2vw;
+    height: 6vh;
+    max-height: 50px;
+  }
+
+  #navlogo-item {
+    align-self: auto;
+    display: block;
+    width: 6vh;
+    width: unset;
+  }
+
+  #menu-icon {
+    display: none;
+  }
+
+  nav ul {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .nav-button {
+    display: flex;
+    width: 50px; /* Any bigger and a horizontal scroll can occur on 425px width devices */
+    padding: 0 15px;
+  }
+
+  #home-page #homeButton a, /* Show a red line under current page button */
+  #members-page #membersButton a,
+  #gallery-page #galleryButton a,
+  #sponsors-page #sponsorsButton a {
+    border-bottom: 2px solid #0011ff;
+    margin-bottom: -2px;
+    background: #1A2324;
+  }
+
+  header h1 {
+    width: max-content;
+  }
+
+  .banner h2 strong {
+    display: inline;
+  }
+
+  .card p {
+    font-size: 30px;
+  }
+
+  .team-card h3 {
+    font-size: 40px;
+  }
+
+  .team-card .team-icon {
+    max-height: 100px;
+    max-width: 100px;
+  }
+
+  .minicard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  }
+
+  .minicard h4 {
+    font-size: 30px;
+  }
+
+  .contact-footer ul li a {
+    display: flex;
+  }
+}
+
+@media screen and (min-width: 29.6875em) { /* 475 px */
+  #navlogo {
+    max-height: unset; /* Allow logo to be any height now that the width will compensate */
+  }
+}
+
+@media screen and (min-width: 32.125em) { /* 525 px */
+  .nav-button {
+    width: 80px;
+  }
+  header h1 {
+    font-size: 30px;
+    word-spacing: 20px;
+  }
+}
+
+@media screen and (min-width: 43.75em) { /* 700 px */
+  nav ul {
+    justify-content: flex-start; /* Nav items should now be left-aligned */
+  }
+
+  #githubButton {
+    display: block;
+  }
+
+  .card {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
+
+  .card-logo {
+    width: 400px;
+  }
+
+  #competition .card p {
+    text-align: justify;
+  }
+
+  .banner h2 {
+    font-size: 40px;
+    padding: 25px;
+  }
+
+  header h1 {
+    font-size: 50px;
+    margin: 0 auto;
+  }
+
+  .team-card h3 {
+    font-size: 60px;
+  }
+
+  .team-card .team-icon {
+    max-height: 100px;
+    max-width: 100px;
+    margin-top: 10px;
+  }
+
+  .team-card .image-gallery img {
+    width: 150px;
+  }
+
+  .team-card .image-gallery li figure {
+    width: 250px;
+  }
+}
+
+@media screen and (min-width: 62.5em) { /* 1000 px */
+  .card-logo {
+    float: left;
+    shape-outside: circle(50%);
+    width: 40vw;
+  }
+
+  .card p {
+    text-align: left;
+  }
+
+  .card-logo {
+    width: 400px;
+  }
+
+  .banner h2 {
+    font-size: 50px;
+  }
+
+  .team-card h3 {
+    display: inline;
+    font-size: 80px;
+  }
+
+  .team-card .team-icon {
+    display: inline;
+    margin-left: 20px;
+    margin-top: 0px;
+  }
+
+  #electrical-team {
+    text-align: right;
+  }
+
+  .team-card .image-gallery {
+    margin-top: 100px;
+  }
+
+  footer ol li::before {
+    content: '▶';
+    font-size: 10px;
+    color: #bdb3b1;
+    position: absolute;
+    left: -20px;
+    transition: color 200ms ease;
+  }
+
+  .alt-footer ol li::before {
+    color: #1A2324;
+  }
+}
+
+@media screen and (min-width: 68.75em) { /* 1100 px */
+  header h1 {
+    font-size: 80px;
+  }
+}
+
+@media screen and (min-width: 75em) { /* 1200 px */
+  #competition .card p {
+    text-align: justify;
+  }
+
+  .team-card {
+    padding-bottom: 100px;
+  }
+
+  .team-card figcaption {
+    font-size: 30px;
+  }
+
+  .team-card .image-gallery img {
+    width: 200px;
+  }
+
+  .team-card .image-gallery li figure {
+    width: 300px;
+  }
+
+  .team-card .member-role {
+    font-size: 25px;
+  }
+}
+
+/* Fixes scrolling issue on IE 11 - https://stackoverflow.com/questions/27966735/why-does-a-fixed-background-image-move-when-scrolling-on-ie */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    html{
+        overflow: hidden;
+        height: 100%;
+    }
+    body{
+        overflow: auto;
+        height: 100%;
+    }
+}
+
+/* Animations */
+@keyframes jump {
+    0% {
+      bottom: 0;
+    }
+
+    50% {
+      bottom: 10px;
+    }
+
+    100% {
+      bottom: 0;
+    }
+}

@@ -19,7 +19,7 @@ html {
 }
 
 body {
-  background: #1A2324;
+  background: #1a3859;
 }
 
 a:link, a:visited {
@@ -32,7 +32,7 @@ a:link, a:visited {
 
 nav {
   display: block;
-  background: #1A2324;
+  background: #1a3859;
   color: #BDB3B1;
 
   min-height: 10vh;
@@ -86,7 +86,7 @@ nav:hover .nav-button {
 }
 
 nav:hover #menu-icon {
-  color: red;
+  color: rgb(255, 255, 255);
   transform: rotate(180deg);
 }
 
@@ -107,7 +107,7 @@ nav ul img {
 }
 
 #githubButton:hover svg {
-  color: rgb(0, 4, 255);
+  color: rgb(255, 255, 255);
 }
 
 #githubButton a:focus {
@@ -118,7 +118,7 @@ nav ul img {
 .nav-button:focus,
 .nav-button:active {
   background: #BDB3B1;
-  color: #1A2324;
+  color: #1a3859;
   border-bottom: 2px solid white;
   margin-bottom: -2px;
   cursor: pointer;
@@ -128,7 +128,7 @@ nav ul img {
 #members-page #membersButton a,
 #gallery-page #galleryButton a,
 #sponsors-page #sponsorsButton a {
-  background: #1A2324;
+  background: hsl(211, 55%, 23%);
   color: #BDB3B1;
   pointer-events: none;
 }
@@ -137,7 +137,7 @@ nav ul img {
 #members-page #membersButton a,
 #gallery-page #galleryButton a,
 #sponsors-page #sponsorsButton a {
-  background: #101616;
+  background: #1a3859;
   cursor: default;
 }
 
@@ -145,13 +145,13 @@ nav ul img {
 
 header {
   color: #BDB3B1;
-  background: #1A2324;
+  background: #1a3859;
   display: grid;
   font-weight: 900;
   height: 90vh;
   text-align: center;
 
-  border-bottom: 10px solid #1A2324;
+  border-bottom: 10px solid #1a3859;
 
   /* TODO: Use image-set */
   background-image: url("./images/moon.jpg");
@@ -165,7 +165,7 @@ header {
 }
 
 header h1 {
-  background: #1A2324;
+  background: #1a3859;
   padding: 30px 10vw;
   margin: 0 auto;
   height: min-content;
@@ -189,7 +189,7 @@ header h1 {
 
 .banner h2 {
   color: #BDB3B1;
-  background: #1A2324;
+  background: #1a3859;
   padding: 10px;
   font-size: 15px;
   letter-spacing: 10px;
@@ -247,7 +247,7 @@ nav + article section.banner { /* If banner is first thing on page, account for 
 /* Card stuff */
 
 .card {
-  background: #1A2324;
+  background: #1a3859;
   color: #BDB3B1;
   min-height: 40vh;
   padding: 40px 5%;
@@ -255,13 +255,13 @@ nav + article section.banner { /* If banner is first thing on page, account for 
 }
 
 .card a {
-  color: red;
+  color: rgb(255, 255, 255);
   /* text-decoration: red underline; */
 }
 
 .alt {
   background: #BDB3B1;
-  color: #1A2324;
+  color: #1a3859;
 }
 
 .card h3 {
@@ -305,22 +305,22 @@ nav + article section.banner { /* If banner is first thing on page, account for 
 
 #programming-team {
   color: #BDB3B1;
-  background: #1A2324;
+  background: #1a3859;
   border-bottom: 10px solid #505353;
 }
 
 #electrical-team {
-  color: #1A2324;
+  color: #1a3859;
   border-top: 10px solid #878382;
   background: #BDB3B1;
-  /* background: linear-gradient(to bottom, #BDB3B1 0% 95%, #1A2324 100%); */
+  /* background: linear-gradient(to bottom, #BDB3B1 0% 95%, #1a3859 100%); */
   border-bottom: 10px solid #878382;
 }
 
 #mechanical-team {
   color: #BDB3B1;
   border-top: 10px solid #505353;
-  background: #1A2324;
+  background: #1a3859;
 }
 
 /* Minicards */
@@ -340,7 +340,7 @@ nav + article section.banner { /* If banner is first thing on page, account for 
   font-size: 20px;
   line-height: 1em;
   font-weight: bold;
-  border-bottom: 4px solid red;
+  border-bottom: 4px solid rgb(255, 255, 255);
   width: max-content;
 }
 
@@ -348,7 +348,7 @@ nav + article section.banner { /* If banner is first thing on page, account for 
   .minicard li h4 {
     border-bottom: none;
     margin: 20px 0 0 0;
-    text-decoration: red underline;
+    text-decoration: rgb(255, 255, 255) underline;
     text-decoration-thickness: 4px;
     text-align: center;
     width: unset;
@@ -369,7 +369,7 @@ nav + article section.banner { /* If banner is first thing on page, account for 
 }
 
 .minicard li a:hover {
-  text-decoration: 1px red underline;
+  text-decoration: 1px rgb(255, 255, 255) underline;
 }
 
 .minicard li a::after {
@@ -419,7 +419,7 @@ nav + article section.banner { /* If banner is first thing on page, account for 
 }
 
 .team-card-alt .member-role {
-  color: #1A2324;
+  color: #1a3859;
 }
 
 .team-card figure:hover .member-role {
@@ -460,11 +460,11 @@ footer ol li {
 }
 
 footer ol li:hover a {
-  border-bottom: 1px solid red;
+  border-bottom: 1px solid rgb(255, 255, 255);
 }
 
 footer ol li:hover::before {
-  color: red;
+  color: rgb(240, 221, 221)(240, 221, 221);
 }
 
 footer h5 {
@@ -492,11 +492,11 @@ footer ul li:hover svg {
 }
 
 .alt-footer a {
-  color: #1A2324;
+  color: #1a3859;
 }
 
 .alt-footer h5, .alt-footer h5 a, .alt-footer h5 a:visited, .alt-footer h5 a:link {
-  color: #1A2324;
+  color: #1a3859;
 }
 
 #email:hover svg, #email:hover p {
@@ -587,9 +587,9 @@ footer ul li:hover svg {
   #members-page #membersButton a,
   #gallery-page #galleryButton a,
   #sponsors-page #sponsorsButton a {
-    border-bottom: 2px solid #0011ff;
+    border-bottom: 2px solid #ffffff;
     margin-bottom: -2px;
-    background: #1A2324;
+    background: #1a3859;
   }
 
   header h1 {
@@ -743,7 +743,7 @@ footer ul li:hover svg {
   }
 
   .alt-footer ol li::before {
-    color: #1A2324;
+    color: #1a3859;
   }
 }
 
